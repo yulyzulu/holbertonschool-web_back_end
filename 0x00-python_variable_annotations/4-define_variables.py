@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 """ Variables"""
 a = 1
 pi = 3.14
