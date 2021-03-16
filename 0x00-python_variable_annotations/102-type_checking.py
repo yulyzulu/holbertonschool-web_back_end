@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""mypy"""
+""" Check with mypy"""
 
 from typing import Tuple, Any, List
 
