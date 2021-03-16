@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test file for printing the correct output of the wait_n coroutine
+Multiple coroutines at the same time with async
 """
 from typing import List
 
@@ -15,4 +15,4 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     for i in range(n):
         num = await wait_random(max_delay)
         lista.append(num)
-    return lista
+    return sorted(lista)
