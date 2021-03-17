@@ -12,8 +12,8 @@ async def measure_runtime() -> float:
         parallel using asyncio.gather."""
     time1 = time.perf_counter()
     await asyncio.gather(async_comprehension(),
-                   async_comprehension(),
-                   async_comprehension(),
-                   async_comprehension())
+                         async_comprehension(),
+                         async_comprehension(),
+                         async_comprehension())
     time2 = time.perf_counter()
     return time2 - time1
