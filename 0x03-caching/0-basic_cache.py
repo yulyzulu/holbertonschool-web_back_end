@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 0-main """
+""" Basic dictionary """
 
 from base_caching import BaseCaching
 
@@ -8,7 +8,7 @@ class BasicCache(BaseCaching):
     """ Basic class"""
 
     def __init__(self):
-        """Constructor """
+        """Constructor function """
         super().__init__()
 
     def put(self, key, item):
