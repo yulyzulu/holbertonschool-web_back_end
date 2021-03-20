@@ -22,7 +22,7 @@ class LIFOCache(BaseCaching):
             last = self.keys_cache[-2:-1]
             #ast = self.cache_data.popitem()
             #print(last)
-            #del self.cache_data[last]
+            del self.cache_data[last[0]]
             print('DISCARD: ' + last[0])
 
     def get(self, key):
