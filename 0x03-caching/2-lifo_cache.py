@@ -10,18 +10,18 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         """Constructor function """
         super().__init__()
-        self.keys_cache = []
+        #self.keys_cache = []
 
     def put(self, key, item):
         """ Assign values to a dictionary"""
         if (key is not None or item is not None):
             self.cache_data[key] = item
-            self.keys_cache.append(key)
+            #self.keys_cache.append(key)
         if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
-            last = self.keys_cache.pop()
-            #last = self.cache_data.popitem()
-            del self.cache_data[last]
-            print('DISCARD: ' + last)
+            #last = self.keys_cache.pop()
+            last = self.cache_data.popitem()
+            #del self.cache_data[last]
+            print('DISCARD: ' + last[0])
 
     def get(self, key):
         """Return cache data"""
