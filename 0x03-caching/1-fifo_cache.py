@@ -21,7 +21,6 @@ class FIFOCache(BaseCaching):
             old = self.older.pop(0)
             del self.cache_data[old]
             print('DISCARD: ' + old)
-            
 
     def get(self, key):
         """Return cache data"""
