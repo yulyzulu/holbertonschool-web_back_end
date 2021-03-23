@@ -7,9 +7,9 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """ Basic class"""
 
-    def __init__(self):
-        """Constructor function """
-        super().__init__()
+   # def __init__(self):
+   #     """Constructor function """
+   #     super().__init__()
 
     def put(self, key, item):
         """ Assign values to a dictionary"""
