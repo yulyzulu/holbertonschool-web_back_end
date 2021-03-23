@@ -21,7 +21,6 @@ class LRUCache(BaseCaching):
             self.cache_data[key] = item
             self.older.append(key)
         if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
-            print(self.older)
             old = self.older.pop(0)
             del self.cache_data[old]
             print('DISCARD: ' + old)
