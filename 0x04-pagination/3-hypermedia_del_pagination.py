@@ -40,7 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """ """
+        """Hypermedia pagination """
         indexed = self.indexed_dataset()
         indexed_data = len(indexed)
         assert index >= 0 and index < indexed_data
