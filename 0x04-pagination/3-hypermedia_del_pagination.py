@@ -41,18 +41,13 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """ """
-        #assert type(index) is int and index > 0
-        #print(index)
-        #dataset = dataset()
-        #print(self.dataset[:page_size])
         indexed = self.indexed_dataset()
-        #print(indexed[index])
         indexed_data = len(indexed)
-        assert index > 0 and index < indexed_data
+        assert index >= 0 and index < indexed_data
+        if index == 0:
+            page_size = page_size - 1
         next_index = index + page_size
         data = indexed[index + next_index]
-        #print(indexed_data)
-        #print(indexed[index, page_size])
         pagination = {'index': index,'next_index': next_index, 'page_size': page_size, 'data': data}
         return pagination
          
