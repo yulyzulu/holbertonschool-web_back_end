@@ -48,6 +48,8 @@ class Server:
             page_size = page_size - 1
         next_index = index + page_size
         data = indexed[index + next_index]
-        pagination = {'index': index,'next_index': next_index, 'page_size': page_size, 'data': data}
+        pagination = {'index': index,
+                      'next_index': next_index,
+                      'page_size': page_size,
+                      'data': data}
         return pagination
-         
