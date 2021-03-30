@@ -31,6 +31,7 @@ def unauthorized() -> str:
     """ Executed 401 errror handler"""
     abort(401)
 
+
 @app_views.route('/forbidden', strict_slashes=False)
 def forbidden() -> str:
     """ Execute 403 error"""
