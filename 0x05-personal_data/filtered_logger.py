@@ -61,10 +61,20 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                      database=os.environ.get('PERSONAL_DATA_DB_NAME'))
     return cnx
 
+
 def main():
     """The function obtain a database connection using get_db and retrieve
        all rows in the users table """
-    pass
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    for row in cursor:
+        info_users = ""
+        for key in row:
+            info_users += "{}={}; ".format(key, row[key])
+        print(info_users)
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main__":
