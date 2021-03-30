@@ -5,6 +5,7 @@ logging file
 from typing import List
 import re
 import logging
+import os
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
@@ -48,3 +49,13 @@ def get_logger() -> logging.Logger:
     handler.setFormatter(RedactingFormatter(PII_FIELDS))
     logger.addHandler(handler)
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """Get DB method that return connector to the database"""
+    cnx = mysql.connector.connect(
+                     user=os.environ.get('PERSONAL_DATA_DB_USERNAME'),
+                     password=os.environ.get('PERSONAL_DATA_DB_PASSWORD', ''),
+                     host=os.environ.get('PERSONAL_DATA_DB_HOST', 'localhost'),
+                     database=os.environ.get('PERSONAL_DATA_DB_NAME', 'root'))
+    return cnx
