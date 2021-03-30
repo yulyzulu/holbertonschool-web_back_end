@@ -37,7 +37,7 @@ class RedactingFormatter(logging.Formatter):
                                super().format(record), self.SEPARATOR)
         return formato
 
-    def get_logger(self) -> logging.Logger:
+    def get_logger() -> logging.Logger:
         """ Get logger method"""
         logger = logging.getLogger("user_data")
         logger.setLevel(logging.INFO)
@@ -46,4 +46,3 @@ class RedactingFormatter(logging.Formatter):
         handler.setFormatter(RedactingFormatter(PII_FIELDS))
         logger.addHandler(handler)
         return logger
-        
