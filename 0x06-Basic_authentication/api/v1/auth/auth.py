@@ -15,8 +15,6 @@ class Auth:
             return True
         if path[-1] != '/':
             path = path + '/'
-            #print(path)
-        #if path == '/api/v1/status/' and path in excluded_paths:
         if path in excluded_paths:
             return False
         else:
@@ -25,7 +23,9 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """ Authorization_header that returns None - request"""
-        return None
+        if request:
+            return request.headers.get('Authorization')
+
 
     def current_user(self, request=None) -> TypeVar('User'):
         """Current user method"""
