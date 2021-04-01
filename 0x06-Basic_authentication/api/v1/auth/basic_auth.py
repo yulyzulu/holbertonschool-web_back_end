@@ -47,8 +47,12 @@ class BasicAuth(Auth):
         if type(decoded_base64_authorization_header) is not str:
             return None, None
         decoded_header = decoded_base64_authorization_header.split(':')
-        if len(decoded_header) == 2:
-            return decoded_header[0], decoded_header[1]
+        if len(decoded_header) >= 2:
+            pwd = decoded_header[1]
+            if len(decoded_header) > 2:
+                for i in range(len(decoded_header)):
+                    pwd += decoded_header[i + 2]
+            return decoded_header[0], pwd
         else:
             return None, None
 
