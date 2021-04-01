@@ -50,8 +50,9 @@ class BasicAuth(Auth):
         if len(decoded_header) >= 2:
             pwd = decoded_header[1]
             if len(decoded_header) > 2:
-                for i in range(len(decoded_header)):
-                    pwd += decoded_header[i + 2]
+                print(len(decoded_header))
+                for i in range(1, len(decoded_header) - 1):
+                    pwd += decoded_header[i + 1]
             return decoded_header[0], pwd
         else:
             return None, None
