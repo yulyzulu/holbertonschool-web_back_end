@@ -20,6 +20,7 @@ if os.getenv('AUTH_TYPE') == 'auth':
 
 list_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
 
+
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
@@ -38,6 +39,7 @@ def forbidden(error) -> str:
     """Forbidden error"""
     return jsonify({"error": "Forbidden"}), 403
 
+
 @app.before_request
 def before_request():
     """ Before request method"""
@@ -49,6 +51,7 @@ def before_request():
         abort(401)
     if not auth.current_user(request):
         abort(403)
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
