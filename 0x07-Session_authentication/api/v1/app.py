@@ -24,9 +24,6 @@ if os.getenv('AUTH_TYPE') == 'session_auth':
     from api.v1.auth.session_auth import SessionAuth
     auth = SessionAuth()
 
-#list_paths = ['/api/v1/status/', '/api/v1/unauthorized/',
-#              '/api/v1/forbidden/', '/api/v1/auth_session/login/']
-
 
 @app.errorhandler(404)
 def not_found(error) -> str:
@@ -56,8 +53,8 @@ def before_request():
         return None
     if not auth.require_auth(request.path, list_paths):
         return None
-    if auth.authorization_header(request) is None\
-       and auth.session_cookie(request) is None:
+    if (auth.authorization_header(request) is None and
+            auth.session_cookie(request) is None):
         abort(401)
     if not auth.current_user(request):
         abort(403)
