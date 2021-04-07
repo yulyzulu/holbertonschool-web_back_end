@@ -20,6 +20,9 @@ if os.getenv('AUTH_TYPE') == 'auth':
 if os.getenv('AUTH_TYPE') == 'basic_auth':
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
+if os.getenv('AUTH_TYPE') == 'session_auth':
+    from api.v1.auth.session_auth import SessionAuth
+    auth = SessionAuth()
 
 list_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
 
