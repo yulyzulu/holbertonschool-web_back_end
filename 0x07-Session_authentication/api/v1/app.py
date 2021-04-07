@@ -55,7 +55,7 @@ def before_request():
         return None
     if not auth.require_auth(request.path, list_paths):
         return None
-    if not auth.authorization_header(request) and not auth.session_cookie(request):
+    if auth.authorization_header(request) is None and auth.session_cookie(request) is None:
         abort(401)
     if not auth.authorization_header(request):
         abort(401)
