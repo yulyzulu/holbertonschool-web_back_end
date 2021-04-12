@@ -38,7 +38,7 @@ class DB:
         self._session.commit()
         return new_user
 
-    def find_user_by(self, **kwargs):
+    def find_user_by(self, **kwargs) -> User:
         """Find user method takes in arbitrary keyword arguments and
            returns the first row found in the users table as filtered
            by the methods input arguments """
@@ -48,8 +48,9 @@ class DB:
             if i not in keywords:
                 raise InvalidRequestError
         data = self._session.query(User).filter_by(**kwargs).first()
-        if data is None:
+        if data:
+            return data
+        else:
             raise NoResultFound
-        return data
 
 
