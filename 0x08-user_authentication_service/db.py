@@ -48,7 +48,7 @@ class DB:
             if i not in keywords:
                 raise InvalidRequestError
         data = self._session.query(User).filter_by(**kwargs).first()
-        if not data:
+        if data is None:
             raise NoResultFound
         return data
 
