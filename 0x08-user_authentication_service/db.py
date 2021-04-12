@@ -29,7 +29,7 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email: str, hashed_password: str) -> object:
+    def add_user(self, email: str, hashed_password: str) -> User:
         """Add user method require email and hashed_password as
            argumetns and return a User object"""
         new_user = User(email=email, hashed_password=hashed_password)
