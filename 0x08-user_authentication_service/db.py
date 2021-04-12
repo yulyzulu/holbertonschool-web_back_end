@@ -42,13 +42,13 @@ class DB:
         """Find user method takes in arbitrary keyword arguments and
            returns the first row found in the users table as filtered
            by the methods input arguments """
-        keywords = ['id', 'email', 'hashed_password', 'session_id', 'reset_token']
+        keywords = ['id', 'email', 'hashed_password',
+                    'session_id', 'reset_token']
         for i in kwargs.keys():
             if i not in keywords:
-               raise  InvalidRequestError
+                raise InvalidRequestError
         data = self._session.query(User).filter_by(**kwargs).first()
         if data:
             return data
         else:
             raise NoResultFound
-           
