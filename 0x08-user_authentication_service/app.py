@@ -13,11 +13,13 @@ AUTH = Auth()
 
 @app.route('/')
 def welcome() -> str:
+    """ Welcome function"""
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'], strict_slashes=False)
 def users() -> str:
+    """Users function"""
     email = request.form.get('email')
     password = request.form.get('password')
     try:
@@ -29,6 +31,7 @@ def users() -> str:
 
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login():
+    """ Login function"""
     email = request.form.get('email')
     password = request.form.get('password')
     if AUTH.valid_login(email, password):
@@ -42,7 +45,7 @@ def login():
 
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
-    """ Log out"""
+    """ Log out function """
     session_id = request.cookies.get('session_id')
     resp = AUTH.get_user_from_session_id(session_id)
     if not resp:
