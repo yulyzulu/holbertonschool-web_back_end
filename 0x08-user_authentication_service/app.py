@@ -30,7 +30,7 @@ def users() -> str:
 
 
 @app.route('/sessions', methods=['POST'], strict_slashes=False)
-def login():
+def login() -> str:
     """ Login function"""
     email = request.form.get('email')
     password = request.form.get('password')
@@ -44,7 +44,7 @@ def login():
 
 
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
-def logout():
+def logout() -> str:
     """ Log out function """
     session_id = request.cookies.get('session_id')
     try:
