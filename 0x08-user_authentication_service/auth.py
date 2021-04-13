@@ -60,3 +60,11 @@ class Auth:
             return session_id
         except NoResultFound:
             return None
+
+    def get_user_from_session_id(session_id: str) -> User:
+        """ Get user by session id"""
+        try:
+            user = get_user_from_session_id(session_id=session_id)
+            return user
+        except NoResultFound:
+            return None
