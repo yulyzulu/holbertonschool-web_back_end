@@ -3,7 +3,7 @@
 App file
 """
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, redirect
 from auth import Auth
 
 
@@ -43,11 +43,11 @@ def login():
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
     session_id = request.cookies.get('session_id')
-    resp = AUTH.get_user_from_session_id(session_id)
-    if resp:
+    try:
+        resp = AUTH.get_user_from_session_id(session_id)
         AUTH.destroy_session(resp.id)
         return redirect('/')
-    else:
+    except Exception:
         return abort(403)
         
 
