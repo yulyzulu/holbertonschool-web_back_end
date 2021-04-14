@@ -1,4 +1,4 @@
-[2;2Rr/bin/env python3
+#!/usr/bin/env python3
 """
 App file
 """
