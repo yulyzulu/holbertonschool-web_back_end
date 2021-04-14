@@ -53,7 +53,7 @@ class DB:
         else:
             raise NoResultFound
 
-    def update_user(self, user_id: int, **kwargs)-> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         """Method that takes as argument a required user_id integer
             and arbitrary keyword arguments, and returns None"""
         keywords = ['id', 'email', 'hashed_password',
