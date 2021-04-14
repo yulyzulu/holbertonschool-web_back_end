@@ -54,6 +54,7 @@ def logout() -> str:
     else:
         abort(403)
 
+
 @app.route('/profile', strict_slashes=False)
 def profile() -> str:
     """Function to find user """
