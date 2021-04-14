@@ -70,8 +70,8 @@ def profile() -> str:
 def get_reset_password_token() -> str:
     """ Function to reset password token"""
     email = request.form.get('email')
-    if email:
-        token = AUTH.get_reset_password_token(email)
+    token = AUTH.get_reset_password_token(email)
+    if token:
         msg = {"email": email, "reset_token": token}
         return jsonify(msg), 200
     else:
