@@ -9,8 +9,9 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-class Config(object):
+class Config():
     LANGUAGES = ["en", "fr"]
+
 
 app.Config['BABEL_DEFAULT_LOCALE'] = "en"
 app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
