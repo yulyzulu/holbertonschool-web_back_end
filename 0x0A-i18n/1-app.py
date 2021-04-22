@@ -13,12 +13,12 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
-app.Config['BABEL_DEFAULT_LOCALE'] = "en"
-app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
+#app.Config['BABEL_DEFAULT_LOCALE'] = "en"
+#app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
 
 @app.route('/')
-def hello() -> object:
+def hello():
     """Greet function"""
     return render_template('1-index.html')
 
