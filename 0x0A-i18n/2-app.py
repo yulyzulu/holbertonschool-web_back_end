@@ -13,8 +13,9 @@ class Config:
     """ Config class"""
     LANGUAGES = ["en", "fr"]
 
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+app.config.from_object(Config)
+Babel.default_locale = "en"
+Babel.default_timezone = "UTC"
 
 
 @babel.localeselector
@@ -25,7 +26,7 @@ def get_locale():
 @app.route('/')
 def hello():
     """Greet function"""
-    return render_template('2-index.html', locale=get_locale())
+    return render_template('2-index.html')
 
 
 if __name__ == "__main__":
