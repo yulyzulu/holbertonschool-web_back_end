@@ -3,7 +3,6 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
-from typing import List
 
 
 app = Flask(__name__)
@@ -14,6 +13,7 @@ class Config:
     """ Config class"""
     LANGUAGES = ["en", "fr"]
 
+
 app.config.from_object(Config)
 Babel.default_locale = "en"
 Babel.default_timezone = "UTC"
@@ -23,6 +23,7 @@ Babel.default_timezone = "UTC"
 def get_locale() -> str:
     """Get locale function"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/')
 def hello():
