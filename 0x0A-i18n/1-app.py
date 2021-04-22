@@ -13,8 +13,8 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
-#app.Config['BABEL_DEFAULT_LOCALE'] = "en"
-#app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
+app.config['BABEL_DEFAULT_LOCALE'] = "en"
+app.config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
 
 @app.route('/')
