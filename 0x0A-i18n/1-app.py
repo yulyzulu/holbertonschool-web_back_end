@@ -12,14 +12,9 @@ babel = Babel(app)
 class Config(object):
     LANGUAGES = ["en", "fr"]
 
-app.Config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.Config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+app.Config['BABEL_DEFAULT_LOCALE'] = "en"
+app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
-
-@babel.localeselector
-def get_locale():
-    """Get locale function"""
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 @app.route('/')
 def hello():
