@@ -19,9 +19,7 @@ app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 @app.route('/')
 def hello():
     """Greet function"""
-    return render_template('1-index.html', locale=get_locale() or babel.default_locale)
-
-
+    return render_template('1-index.html')
 
 
 if __name__ == "__main__":
