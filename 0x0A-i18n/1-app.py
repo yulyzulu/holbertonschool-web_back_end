@@ -13,9 +13,9 @@ class Config:
     """ Config class"""
     LANGUAGES = ["en", "fr"]
 
-
-app.config['BABEL_DEFAULT_LOCALE'] = "en"
-app.config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
+app.config.from_object(Config)
+Babel.default_locale = "en"
+Babel.default_timezone = "UTC"
 
 
 @app.route('/')
