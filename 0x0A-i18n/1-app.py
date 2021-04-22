@@ -18,7 +18,7 @@ app.Config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
 
 @app.route('/')
-def hello():
+def hello() -> object:
     """Greet function"""
     return render_template('1-index.html')
 
