@@ -29,7 +29,7 @@ def get_locale() -> str:
 @app.route('/')
 def hello():
     """Greet function"""
-    return render_template('4-index.html')
+    return render_template('4-index.html', locale=get_locale() or babel.default_locale)
 
 
 if __name__ == "__main__":
