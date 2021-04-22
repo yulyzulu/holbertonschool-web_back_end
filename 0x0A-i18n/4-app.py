@@ -22,14 +22,16 @@ Babel.default_timezone = "UTC"
 @babel.localeselector
 def get_locale() -> str:
     """Get locale function"""
-    #return request.accept_languages.best_match(app.config['LANGUAGES'])
-    return 'fr'
+    locale = request.args.get("locale")
+    if locale;
+        return locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def hello():
     """Greet function"""
-    return render_template('4-index.html', locale=get_locale() or babel.default_locale)
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
