@@ -23,7 +23,7 @@ Babel.default_timezone = "UTC"
 def get_locale() -> str:
     """Get locale function"""
     locale = request.args.get("locale")
-    if locale;
+    if locale:
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
