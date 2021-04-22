@@ -19,7 +19,7 @@ app.config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
 
 @app.route('/')
-def hello():
+def hello() -> str:
     """Greet function"""
     return render_template('1-index.html')
 
