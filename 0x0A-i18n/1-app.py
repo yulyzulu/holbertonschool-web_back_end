@@ -10,6 +10,7 @@ babel = Babel(app)
 
 
 class Config:
+    """ Config class"""
     LANGUAGES = ["en", "fr"]
 
 
