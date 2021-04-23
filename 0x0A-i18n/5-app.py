@@ -23,7 +23,7 @@ Babel.default_timezone = "UTC"
 def get_locale() -> str:
     """Get locale function"""
     locale = request.args.get("locale")
-    if locale:
+    if locale and locale in app.config['LANGUAGES']:
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -33,13 +33,15 @@ def hello():
     """Greet function"""
     return render_template('5-index.html')
 
+
 def get_user():
     """Function to get user"""
-    login_as = request.args.get("login_as")
-    if login_as:
+    try:
+        login_as = request.args.get("login_as")
         return users[login_as]
-    else:
+    except Exception:
         return None
+
 
 @app.before_request
 def before_request():
