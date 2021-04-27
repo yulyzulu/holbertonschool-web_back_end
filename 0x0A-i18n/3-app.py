@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" App file Config all"""
+""" App file Config all with Babel"""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
@@ -10,7 +10,7 @@ babel = Babel(app)
 
 
 class Config:
-    """ Config class ."""
+    """ Configuration Class ."""
     LANGUAGES = ["en", "fr"]
 
 
@@ -21,13 +21,13 @@ Babel.default_timezone = "UTC"
 
 @babel.localeselector
 def get_locale() -> str:
-    """Get locale function ."""
+    """Get locale ubication to return languaje traslation ."""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def hello():
-    """Greet function ."""
+    """Renders a basic template ."""
     return render_template('3-index.html')
 
 
