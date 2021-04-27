@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ App file """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 
 
@@ -10,7 +10,7 @@ babel = Babel(app)
 
 
 class Config:
-    """ Config class"""
+    """ Configuration class"""
     LANGUAGES = ["en", "fr"]
 
 
@@ -23,7 +23,7 @@ def get_user() -> Union[dict, None]:
     """Function to get user"""
     try:
         login_as = request.args.get("login_as")
-        return users[login_as]
+        return users[int(login_as)]
     except Exception:
         return None
 
