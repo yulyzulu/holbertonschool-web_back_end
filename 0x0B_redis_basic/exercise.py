@@ -36,6 +36,11 @@ def call_history(method: Callable) -> Callable:
     return wrapper
 
 
+def replay(method: Callable) -> Callable:
+    """Function to dispay history of calls of a particular function"""
+    pass
+
+
 class Cache:
     """Cache class"""
 
