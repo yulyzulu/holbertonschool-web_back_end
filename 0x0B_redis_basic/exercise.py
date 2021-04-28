@@ -4,7 +4,21 @@ Module to execute functions
 """
 import redis
 import uuid
-from typing import Union, Callable
+from typing import Union, Optional, Callable
+from functools import wraps
+
+
+def count_calls(method: Callable) -> Callable:
+    """Decorator that takes a single method Callable arguments
+       and return a Callable"""
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args):
+        value = method(self, *args)
+        self._redis.incr(key)
+        return value
+    return wrapper
 
 
 class Cache:
@@ -16,6 +30,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """The method should generate a random key, store the input data
            in Redis using the random key and return the key"""
@@ -23,12 +38,13 @@ class Cache:
         self._redis.mset({id: data})
         return id
 
-    def get(self, key: str, fn: Callable) -> Union[str, bytes, int, float]:
+    def get(self, key: str,
+            fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
         """Get method takes a key string argument and optional Callable
            argument """
         data = self._redis.get(key)
         if fn:
-            return fn(self._redis.get(data)
+            return fn(self._redis.get(data))
         return data
 
     def get_str(self, data: str) -> str:
