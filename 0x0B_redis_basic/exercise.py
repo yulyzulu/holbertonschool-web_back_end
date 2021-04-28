@@ -44,7 +44,7 @@ class Cache:
            argument """
         data = self._redis.get(key)
         if fn:
-            return fn(self._redis.get(data))
+            return fn(data)
         return data
 
     def get_str(self, data: str) -> str:
