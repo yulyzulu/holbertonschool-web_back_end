@@ -1,7 +1,7 @@
-import signUpUser from "./4-user-promise.js";
-import uploadPhoto from "./5-photo-reject.js";
+import signUpUser from "./4-user-promise";
+import uploadPhoto from "./5-photo-reject";
 
-export default  async function handleProfileSignup(firstName, lastName, fileName) {
+export default async function handleProfileSignup(firstName, lastName, fileName) {
   let promise1;
   let promise2;
   try {
