@@ -1,6 +1,6 @@
 export default function getListStudentIds(getList) {
   const array = [];
-  if (!Array.isArray(getList)) {
+  if (!Array.isArray(getList) && getList.every(i => typeof i !== 'object')) {
     return array;
   }
 
