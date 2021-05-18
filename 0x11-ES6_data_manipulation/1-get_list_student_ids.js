@@ -4,6 +4,8 @@ export default function getListStudentIds(getList) {
     return array;
   }
 
-  getList.map(item => array.push(item.id));
+  getList.map(item => {
+    array.push(item.id)
+  });
   return array;
 }
