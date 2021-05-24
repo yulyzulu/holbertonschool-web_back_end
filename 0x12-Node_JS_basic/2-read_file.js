@@ -9,7 +9,6 @@ function countStudents(path) {
     const studentDescription = {};
     for (const i of students) {
       const student = i.split(',');
-      console.log(student);
       if (!studentDescription[student[3]]) {
         studentDescription[student[3]] = [];
       }
