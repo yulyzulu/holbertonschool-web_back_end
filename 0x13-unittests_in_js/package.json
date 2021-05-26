@@ -9,7 +9,8 @@
   "author": "Yulieth Zuluaga",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^8.4.0"
+    "mocha": "^8.4.0",
+    "sinon": "^11.1.1"
   },
   "dependencies": {
     "chai": "^4.3.4"
