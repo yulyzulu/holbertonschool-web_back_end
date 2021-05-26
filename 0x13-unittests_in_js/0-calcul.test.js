@@ -14,4 +14,7 @@ describe('Returns the expected sum', () => {
   it('Should return rounded sum', () => {
     assert.equal(sum.calculateNumber(1.5, 3.7), 6);
   });
+  it('Should return rounded sum', () => {
+    assert.equal(sum.calculateNumber(-1.2, -3.8), -5);
+  });
 });
