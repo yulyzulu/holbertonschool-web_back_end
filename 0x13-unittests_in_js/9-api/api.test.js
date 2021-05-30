@@ -40,8 +40,8 @@ describe('Test server with express', function() {
     .end((err, res) => {
       if (err) {
         throw err;
+        expect(res).to.have.status(404);
       }
-      expect(res).to.have.status(404);
     })
   });
 });
