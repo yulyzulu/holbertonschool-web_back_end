@@ -22,7 +22,7 @@ describe('Test server with express', function() {
 describe('Test server with express', function() {
   it('Check the returns', function() {
     chai.request(url)
-    .get('/cart/18')
+    .get('/cart/11')
     .end((err, res) => {
       if (err) {
         throw err;
@@ -36,12 +36,12 @@ describe('Test server with express', function() {
 describe('Test server with express', function() {
   it('Check the returns', function() {
     chai.request(url)
-    .get('/cart/seven')
+    .get('/cart/eleven')
     .end((err, res) => {
       if (err) {
         throw err;
-        expect(res).to.have.status(404);
       }
+      expect(res).to.have.status(404);
     })
   });
 });
