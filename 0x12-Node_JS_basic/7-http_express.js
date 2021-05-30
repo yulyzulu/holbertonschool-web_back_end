@@ -7,8 +7,6 @@ const database = args[0];
 
 const app = express();
 
-const PORT = 1245;
-
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
@@ -23,7 +21,7 @@ app.get('/students', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(1245, () => {
   console.log(`Server running at: http://localhost:${PORT}/`);
 });
 
